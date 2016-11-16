@@ -1,4 +1,4 @@
-function filter(dataToBeFiltered, activeFilter) {
+function filterPoll(dataToBeFiltered, activeFilter) {
 
     filteredData = dataToBeFiltered;
 
@@ -25,7 +25,8 @@ var einzelFilter = {
         return obj[age] === "31-50";
     },
     ag5:function (obj) {
-        return obj[age] === "51 und älter";
+        var age = obj[window.age];
+        return age === "51 und älter";
     },
     gew:function (obj) {
         return obj[gender] === "weiblich";
