@@ -62,9 +62,9 @@ var lang2 = "Mittel (bis 30 Minuten)";
 var lang3 = "Länger";
 
 var ort0 = "Zuhause";
-var ort2 = "Unterwegs (z.B. im ÖPNV)";
-var ort3 = "In der Schule/Hochschule/Auf der Arbeit";
-var ort4 = "Sonstige";
+var ort1 = "Unterwegs (z.B. im ÖPNV)";
+var ort2 = "In der Schule/Hochschule/Auf der Arbeit";
+var ort3 = "Sonstige";
 
 var art0 = "Strategie-Spiele (wie z.B. Clash of Clans)";
 var art1 = "Level-Spiele (wie z.B. Angry Birds)";
