@@ -11,70 +11,69 @@ function filterPoll(dataToBeFiltered, activeFilter) {
 
 var einzelFilter = {
     ag0: function (obj) {
-        return obj[window.age] === "13 und Jünger";
+        return obj[window.age] === window.ag0;
     },
     ag1: function (obj) {
-        return obj[window.age] === "14-18";
+        return obj[window.age] === window.ag1;
     },
     ag2: function (obj) {
-        return obj[window.age] === "19-23";
+        return obj[window.age] === window.ag2;
     },
     ag3: function (obj) {
-        return obj[window.age] === "24-30";
+        return obj[window.age] === window.ag3;
     },
     ag4: function (obj) {
-        return obj[window.age] === "31-50";
+        return obj[window.age] === window.ag4;
     },
     ag5: function (obj) {
-        var age = obj[window.age];
-        return age === "51 und älter";
+        return obj[window.age] === window.ag5;
     },
     gew: function (obj) {
-        return obj[window.gender] === "weiblich";
+        return obj[window.gender] === window.gew;
     },
     gem: function (obj) {
-        return obj[window.gender] === "männlich";
+        return obj[window.gender] === window.gem;
     },
     be0: function (obj) {
-        return obj[window.job] === "Studium";
+        return obj[window.job] === window.be0;
     },
     be1: function (obj) {
-        return obj[window.job] === "Ausbildung";
+        return obj[window.job] === window.be1;
     },
     be2: function (obj) {
-        return obj[window.job] === "Schule";
+        return obj[window.job] === window.be2;
     },
     be3: function (obj) {
-        return obj[window.job] === "Angestellt";
+        return obj[window.job] === window.be3;
     },
     be4: function (obj) {
-        return obj[window.job] === "Selbstständig";
+        return obj[window.job] === window.be4;
     },
     be5: function (obj) {
-        return obj[window.job] === "Arbeitslos";
+        return obj[window.job] === window.be5;
     },
     be6: function (obj) {
-        return obj[window.job] === "Sonstige";
+        return obj[window.job] === window.be6;
     },
     uni0: function (obj) {
-        return obj[window.uni] === "Universität";
+        return obj[window.uni] === window.uni0;
     },
     uni1: function (obj) {
-        return obj[window.uni] === "Fachhochschule";
+        return obj[window.uni] === window.uni1;
     },
     uni2: function (obj) {
-        return obj[window.uni] === "Duale Hochschule";
+        return obj[window.uni] === window.uni2;
     },
     uni3: function (obj) {
-        return obj[window.uni] === "Pädagogische Hochschule";
+        return obj[window.uni] === window.uni3;
     },
     uni4: function (obj) {
-        return obj[window.uni] === "Musisch-künstlerische Hochschule";
+        return obj[window.uni] === window.uni4;
     },
     uni5: function (obj) {
-        return obj[window.uni] === "Theologische Hochschule";
+        return obj[window.uni] === window.uni5;
     },
     uni6: function (obj) {
-        return obj[window.uni] === "Sonstige";
+        return obj[window.uni] === window.uni6;
     }
 };
