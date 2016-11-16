@@ -37,5 +37,4 @@ function changeVisibilityOfStudyIfNecessary(cb) {
 
 function showResults(){
     var filteredData = filterPoll(data, filterArray);
-    console.log(filteredData)
 }
