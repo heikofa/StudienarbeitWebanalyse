@@ -36,15 +36,25 @@ $.getJSON("data/data.json", function(obj) {
 
 function toggleCheckbox(cb){
     changeVisibilityOfStudyIfNecessary(cb);
+    editFilter(cb);
     showResults();
+}
+function editFilter(cb){
+    var index = filter.indexOf(cb.id)
+    if(index>-1){
+        filter.splice(index,1)
+    }
+    else{
+        filter.push(cb.id)
+    }
 }
 
 function changeVisibilityOfStudyIfNecessary(cb) {
     if(cb.id=="be0") {
         if (cb.checked) {
-            document.getElementById("studium").style.visibility = "visible"
+            document.getElementById("studium").style.visibility = "visible";
         } else {
-            document.getElementById("studium").style.visibility = "collapse"
+            document.getElementById("studium").style.visibility = "collapse";
         }
     }
 }
