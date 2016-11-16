@@ -1,5 +1,5 @@
 
-function filter(dataToBeFiltered) {
+function filter(dataToBeFiltered, filter) {
 
     console.log("Hi")
 
