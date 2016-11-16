@@ -1,9 +1,10 @@
 function filterPoll(dataToBeFiltered, activeFilter) {
 
-    filteredData = dataToBeFiltered;
+    var filteredData = dataToBeFiltered;
 
     activeFilter.forEach(function (element) {
-        filteredData.filter(einzelFilter[element]);
+        var filterForElement = einzelFilter[element];
+        filteredData = filteredData.filter(filterForElement);
     });
     return filteredData;
 }
