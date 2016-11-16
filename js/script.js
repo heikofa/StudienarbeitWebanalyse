@@ -25,7 +25,7 @@ var motivationEmotion = "Wie stark motivieren Sie die folgenden Aspekte, dieses 
 var emotions = "Welche Emotionen fühlen Sie häufig beim Spielen dieses Spiels?";
 var emotionTriggers = "Welche der folgenden Elemente rufen Ihrer Meinung nach diese Emotionen bei diesem Spiel hervor?";
 
-var filter = new Array;
+var filterArray = new Array;
 
 
 var data;
@@ -40,12 +40,12 @@ function toggleCheckbox(cb){
     showResults();
 }
 function editFilter(cb){
-    var index = filter.indexOf(cb.id)
+    var index = filterArray.indexOf(cb.id)
     if(index>-1){
-        filter.splice(index,1)
+        filterArray.splice(index,1)
     }
     else{
-        filter.push(cb.id)
+        filterArray.push(cb.id)
     }
 }
 
@@ -60,5 +60,6 @@ function changeVisibilityOfStudyIfNecessary(cb) {
 }
 
 function showResults(){
-    var filteredData = filter(data, filter);
+    var filteredData = filter(data, filterArray);
+    
 }
