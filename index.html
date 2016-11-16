@@ -1,0 +1,99 @@
+<html>
+<head>
+    <title>$Title$</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+</head>
+<body>
+<a class="btn btn-primary" role="button" data-toggle="collapse" href="#collapseSelectors">
+    Selectors
+</a>
+<div class="collapse" id="collapseSelectors">
+    <div class="checkboxcontainer">
+        <h5>Alter</h5>
+        <div class="checkbox">
+            <label><input onchange="toggleCheckbox(this)" type="checkbox" id="ag0">13 und Jünger</label>
+        </div>
+        <div class="checkbox">
+            <label><input onchange="toggleCheckbox(this)" type="checkbox" id="ag1">14-18</label>
+        </div>
+        <div class="checkbox">
+            <label><input onchange="toggleCheckbox(this)" type="checkbox" id="ag2">19-23</label>
+        </div>
+        <div class="checkbox">
+            <label><input onchange="toggleCheckbox(this)" type="checkbox" id="ag3">24-30</label>
+        </div>
+        <div class="checkbox">
+            <label><input onchange="toggleCheckbox(this)" type="checkbox" id="ag4">31-50</label>
+        </div>
+        <div class="checkbox">
+            <label><input onchange="toggleCheckbox(this)" type="checkbox" id="ag5">51 und älter</label>
+        </div>
+    </div>
+    <div class="checkboxcontainer">
+        <h5>Geschlecht</h5>
+        <div class="checkbox">
+            <label><input onchange="toggleCheckbox(this)" type="checkbox" id="gew">weiblich</label>
+        </div>
+        <div class="checkbox">
+            <label><input onchange="toggleCheckbox(this)" type="checkbox" id="gem">männlich</label>
+        </div>
+    </div>
+    <div class="checkboxcontainer">
+        <h5>Beschäftigung</h5>
+        <div class="checkbox">
+            <label><input onchange="toggleCheckbox(this)" type="checkbox" id="be0">Studium</label>
+        </div>
+        <div class="checkbox">
+            <label><input onchange="toggleCheckbox(this)" type="checkbox" id="be1">Ausbildung</label>
+        </div>
+        <div class="checkbox">
+            <label><input onchange="toggleCheckbox(this)" type="checkbox" id="be2">Schule</label>
+        </div>
+        <div class="checkbox">
+            <label><input onchange="toggleCheckbox(this)" type="checkbox" id="be3">Angestellt</label>
+        </div>
+        <div class="checkbox">
+            <label><input onchange="toggleCheckbox(this)" type="checkbox" id="be4">Selbstständig</label>
+        </div>
+        <div class="checkbox">
+            <label><input onchange="toggleCheckbox(this)" type="checkbox" id="be5">Arbeitslos</label>
+        </div>
+        <div class="checkbox">
+            <label><input onchange="toggleCheckbox(this)" type="checkbox" id="be6">Sonstige</label>
+        </div>
+    </div>
+    <div class="checkboxcontainer" id="studium" style="visibility:collapse">
+        <h5>Studium</h5>
+        <div class="checkbox">
+            <label><input onchange="toggleCheckbox(this)" type="checkbox" id="be0">Universität</label>
+        </div>
+        <div class="checkbox">
+            <label><input onchange="toggleCheckbox(this)" type="checkbox" id="be1">Fachhochschule</label>
+        </div>
+        <div class="checkbox">
+            <label><input onchange="toggleCheckbox(this)" type="checkbox" id="be2">Duale Hochschule</label>
+        </div>
+        <div class="checkbox">
+            <label><input onchange="toggleCheckbox(this)" type="checkbox" id="be3">Pädagogische Hochschule</label>
+        </div>
+        <div class="checkbox">
+            <label><input onchange="toggleCheckbox(this)" type="checkbox" id="be4">Musisch-künstlerische Hochschule</label>
+        </div>
+        <div class="checkbox">
+            <label><input onchange="toggleCheckbox(this)" type="checkbox" id="be5">Theologische Hochschule</label>
+        </div>
+        <div class="checkbox">
+            <label><input onchange="toggleCheckbox(this)" type="checkbox" id="be6">Sonstige</label>
+        </div>
+    </div>
+</div>
+<hr>
+<div>
+
+</div>
+</body>
+</html>
