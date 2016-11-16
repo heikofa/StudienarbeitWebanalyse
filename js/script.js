@@ -47,11 +47,6 @@ function changeVisibilityOfStudyIfNecessary(cb) {
 }
 
 function showResults(){
+    var filteredData = filter(data);
 
-
-}
-
-function filter(data) {
-
-    return data;
 }
