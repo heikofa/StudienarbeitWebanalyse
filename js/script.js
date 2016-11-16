@@ -36,6 +36,6 @@ function changeVisibilityOfStudyIfNecessary(cb) {
 }
 
 function showResults(){
-    var filteredData = filter(data, filterArray);
-    
+    var filteredData = filterPoll(data, filterArray);
+    console.log(filteredData)
 }
