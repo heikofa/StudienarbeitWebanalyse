@@ -25,6 +25,9 @@ var motivationEmotion = "Wie stark motivieren Sie die folgenden Aspekte, dieses 
 var emotions = "Welche Emotionen fühlen Sie häufig beim Spielen dieses Spiels?";
 var emotionTriggers = "Welche der folgenden Elemente rufen Ihrer Meinung nach diese Emotionen bei diesem Spiel hervor?";
 
+var filter = new Array;
+
+
 var data;
 $.getJSON("data/data.json", function(obj) {
     data = obj;
@@ -47,6 +50,5 @@ function changeVisibilityOfStudyIfNecessary(cb) {
 }
 
 function showResults(){
-    var filteredData = filter(data);
-
+    var filteredData = filter(data, filter);
 }
