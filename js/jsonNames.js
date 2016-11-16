@@ -21,3 +21,57 @@ var motivationSupport = "Wie stark motivieren Sie die folgenden Aspekte, dieses 
 var motivationEmotion = "Wie stark motivieren Sie die folgenden Aspekte, dieses Spiel zu spielen? [Emotionen]";
 var emotions = "Welche Emotionen fühlen Sie häufig beim Spielen dieses Spiels?";
 var emotionTriggers = "Welche der folgenden Elemente rufen Ihrer Meinung nach diese Emotionen bei diesem Spiel hervor?";
+
+//Antworten
+var ag0 = "13 und Jünger";
+var ag1 = "14-18";
+var ag2 = "19-23";
+var ag3 = "24-30";
+var ag4 = "31-50";
+var ag5 = "51 und älter";
+
+var gew = "weiblich";
+var gem = "männlich";
+
+var be0 = "Studium";
+var be1 = "Ausbildung";
+var be2 = "Schule";
+var be3 = "Angestellt";
+var be4 = "Selbstständig";
+var be5 = "Arbeitslos";
+var be6 = "Sonstige";
+
+var uni0 = "Universität";
+var uni1 = "Fachhochschule";
+var uni2 = "Duale Hochschule";
+var uni3 = "Pädagogische Hochschule";
+var uni4 = "Musisch-künstlerische Hochschule";
+var uni5 = "Theologische Hochschule";
+var uni6 = "Sonstige";
+
+var oft0 = "Mehrmals täglich";
+var oft1 = "Täglich";
+var oft2 = "Mehrmals pro Woche";
+var oft3 = "Einmal pro Woche";
+var oft4 = "Seltener";
+var oft5 = "Nie";
+
+var lang0 = "Gar nicht";
+var lang1 = "Kurz (wenige Minuten)";
+var lang2 = "Mittel (bis 30 Minuten)";
+var lang3 = "Länger";
+
+var ort0 = "Zuhause";
+var ort2 = "Unterwegs (z.B. im ÖPNV)";
+var ort3 = "In der Schule/Hochschule/Auf der Arbeit";
+var ort4 = "Sonstige";
+
+var art0 = "Strategie-Spiele (wie z.B. Clash of Clans)";
+var art1 = "Level-Spiele (wie z.B. Angry Birds)";
+var art2 = "One-Level-Spiele (wie z.B. Doodle Jump)";
+var art3 = "Sonstige";
+
+var wett0 = "Konfrontation mit eigenem Highscore";
+var wett1 = "Leaderboards mit anderen Spielern";
+var wett2 = "Wettbewerb motiviert mich nicht";
+var wett3 = "Sonstige";
