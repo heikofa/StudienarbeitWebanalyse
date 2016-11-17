@@ -2,11 +2,35 @@ function filterPoll(dataToBeFiltered, activeFilter) {
 
     var filteredData = dataToBeFiltered;
 
-    activeFilter.forEach(function (element) {
-        var filterForElement = einzelFilter[element];
-        filteredData = filteredData.filter(filterForElement);
+    groupCategoriesInArray(activeFilter).forEach(function (category) {
+
+        var categoryFilter = [];
+        category.forEach(function (element) {
+            var filterForElement = einzelFilter[element];
+            categoryFilter = categoryFilter.concat(filteredData.filter(filterForElement));
+
+        });
+        filteredData = categoryFilter;
     });
+
     return filteredData;
+}
+
+function groupCategoriesInArray(activeFilter) {
+
+    var categorizedActiveFilter = [];
+    window.categories.forEach(function (category) {
+        var categoryArray = [];
+        activeFilter.forEach(function (filter) {
+            if (filter.lastIndexOf(category, 0) === 0) {
+                categoryArray.push(filter);
+            }
+        });
+        if (categoryArray.length) {
+            categorizedActiveFilter.push(categoryArray);
+        }
+    });
+    return categorizedActiveFilter;
 }
 
 var einzelFilter = {
@@ -77,3 +101,10 @@ var einzelFilter = {
         return obj[window.uni] === window.uni6;
     }
 };
+
+var categories = [
+    "ag",
+    "be",
+    "ge",
+    "uni"
+];
