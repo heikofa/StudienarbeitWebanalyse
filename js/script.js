@@ -28,6 +28,10 @@ function changeVisibilityOfStudyIfNecessary(cb) {
     }
 }
 
+function setNumberOfTotalAnswers(number) {
+    document.getElementById("total").innerHTML = number;
+}
+
 function showResults() {
     var filteredData = filterPoll(data, filterArray);
     resetNumbers();
@@ -97,6 +101,7 @@ function showResults() {
     numberWhere[3]= filteredData.length-numberWhere[2]-numberWhere[1]-numberWhere[0]-numberHowOften[5];
     numberType[3]= filteredData.length-numberType[2]-numberType[1]-numberType[0]-numberHowOften[5];
     console.log(numberHowOften);
+    setNumberOfTotalAnswers(filteredData.length);
     showChart([window.oft0,window.oft1,window.oft2,window.oft3,window.oft4,window.oft5], numberHowOften,window.howOften,'chartHowOften',pieChart);
     showChart([window.lang0,window.lang1,window.lang2,window.lang3], numberHowLong,window.howLong,'chartHowLong',pieChart);
     showChart([window.ort0,window.ort1,window.ort2,window.ort3], numberWhere,window.where,'chartWhere',barChart);
