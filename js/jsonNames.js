@@ -1,5 +1,5 @@
 var age = "Wie alt sind Sie?";
-var gender = "Geschlecht";
+var gender = "Geschlecht:";
 var job = "Beschäftigung";
 var uni = "In welcher Art von Bildungseinrichtung studieren Sie?";
 var howOften = "Wie oft spielen Sie Spiele auf einem Smartphone?";
