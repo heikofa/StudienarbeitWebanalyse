@@ -80,27 +80,31 @@ var einzelFilter = {
         return obj[window.job] === window.be6;
     },
     uni0: function (obj) {
-        return obj[window.uni] === window.uni0;
+        return uniXFilter("uni0", obj);
     },
     uni1: function (obj) {
-        return obj[window.uni] === window.uni1;
+        return uniXFilter("uni1", obj);
     },
     uni2: function (obj) {
-        return obj[window.uni] === window.uni2;
+        return uniXFilter("uni2", obj);
     },
     uni3: function (obj) {
-        return obj[window.uni] === window.uni3;
+        return uniXFilter("uni3", obj);
     },
     uni4: function (obj) {
-        return obj[window.uni] === window.uni4;
+        return uniXFilter("uni4", obj);
     },
     uni5: function (obj) {
-        return obj[window.uni] === window.uni5;
+        return uniXFilter("uni5", obj);
     },
     uni6: function (obj) {
-        return obj[window.uni] === window.uni6;
+        return uniXFilter("uni6", obj);
     }
 };
+
+function uniXFilter(xAsString, obj) {
+    return !window.einzelFilter.be0(obj) || obj[window.uni] === window[xAsString];
+}
 
 var categories = [
     "ag",
