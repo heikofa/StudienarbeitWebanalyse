@@ -23,12 +23,12 @@ var emotions = "Welche Emotionen fühlen Sie häufig beim Spielen dieses Spiels?
 var emotionTriggers = "Welche der folgenden Elemente rufen Ihrer Meinung nach diese Emotionen bei diesem Spiel hervor?";
 
 //Antworten
-var ag0 = "13 und jünger";
+var ag0 = "13 oder jünger";
 var ag1 = "14-18";
 var ag2 = "19-23";
 var ag3 = "24-30";
 var ag4 = "31-50";
-var ag5 = "51 und älter";
+var ag5 = "51 oder älter";
 
 var gew = "weiblich";
 var gem = "männlich";
