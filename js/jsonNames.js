@@ -8,7 +8,7 @@ var categories = [
     "lang",
     "ort",
     "art",
-    "competition"
+    "wett"
 ];
 
 var ag = "Wie alt sind Sie?";
@@ -19,7 +19,7 @@ var oft = "Wie oft spielen Sie Spiele auf einem Smartphone?";
 var lang = "Wie lang spielen Sie durchschnittlich am Stück?";
 var ort = "Wo spielen Sie gerne Smartphone-Games?";
 var art = "Welche Art von Spielen bevorzugen Sie?";
-var competition = "Welche Art von Wettbewerb motiviert Sie?";
+var wett = "Welche Art von Wettbewerb motiviert Sie?";
 var rewardDaily = "Wie stark motivieren Sie die verschiedenen Arten von Belohnungen? [Belohnungen für tägliches Spielen]";
 var rewardCurrency = "Wie stark motivieren Sie die verschiedenen Arten von Belohnungen? [Belohnungen, die Sie im Spiel weiterbringen]";
 var rewardDesign = "Wie stark motivieren Sie die verschiedenen Arten von Belohnungen? [Belohnungen zur Gestaltung (z. B. ein neuer Hut)]";

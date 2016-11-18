@@ -51,11 +51,12 @@ function showResults() {
     });
     numbers.ort[3] = filteredData.length - numbers.ort[2] - numbers.ort[1] - numbers.ort[0];
     numbers.art[3] = filteredData.length - numbers.art[2] - numbers.art[1] - numbers.art[0] - numbers.oft[5];
+    numbers.wett[3] = filteredData.length - numbers.wett[2] - numbers.wett[1] - numbers.wett[0] - numbers.oft[5];
     console.log(numbers.oft);
     setNumberOfTotalAnswers(filteredData.length);
 
     window.categories.forEach(function (category) {
-        if(category == "ort" || category=="art"){
+        if(category == "ort" || category=="art" || category=="wett"){
             showChart(arrayOfPossibleAnswersOf(category), numbers[category], window[category], "chart"+category, barChart);
             return;
         }
