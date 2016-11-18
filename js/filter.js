@@ -9,6 +9,9 @@ function filterPoll(dataToBeFiltered, activeFilter) {
             var filterForElement = constructFilter(element);
             categoryFilter = categoryFilter.concat(filteredData.filter(filterForElement));
         });
+        if (categoryOf(category[0]) === "uni"){
+            categoryFilter = categoryFilter.concat(filteredData.filter(notUniFilter));
+        }
         filteredData = categoryFilter;
     });
 
@@ -47,16 +50,13 @@ function constructFilter(id) {
     //TODO: Sonstige
     //TODO: Multiple Answers (currently some data is added multiple times due to multiple answers
 
-    if (category === "uni") {
-        return function (obj) {
-            var uniId = id;
-            return !constructFilter("be0")(obj) || obj[window.uni] === window[uniId];
-        }
-    }
-
     return function (obj) {
         return obj[window[category]].indexOf(window[id]) !== -1;
     }
+}
+
+function notUniFilter(obj) {
+    return !constructFilter("be0")(obj);
 }
 
 var categories = [
