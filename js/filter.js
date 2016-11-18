@@ -4,13 +4,13 @@ function filterPoll(dataToBeFiltered, activeFilter) {
 
     groupCategoriesInArray(activeFilter).forEach(function (answersOfOneCategory) {
 
+        var categoryFilter = [];
         if (categoryOf(answersOfOneCategory[0]) === "uni") {
             if (activeFilter.indexOf("be0") === -1) {
                 return;
             }
             categoryFilter = categoryFilter.concat(filteredData.filter(notUniFilter));
         }
-        var categoryFilter = [];
         answersOfOneCategory.forEach(function (element) {
             var filterForElement = constructFilter(element);
             categoryFilter = categoryFilter.concat(filteredData.filter(filterForElement));
