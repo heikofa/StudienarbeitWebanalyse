@@ -36,6 +36,8 @@ var emotions = "Welche Emotionen fühlen Sie häufig beim Spielen dieses Spiels?
 var emotionTriggers = "Welche der folgenden Elemente rufen Ihrer Meinung nach diese Emotionen bei diesem Spiel hervor?";
 
 //Antworten
+var sonstige = "Sonstige";
+
 var ag0 = "13 oder jünger";
 var ag1 = "14-18";
 var ag2 = "19-23";
@@ -52,7 +54,7 @@ var be2 = "Schule";
 var be3 = "Angestellt";
 var be4 = "Selbstständig";
 var be5 = "Arbeitslos";
-var be6 = "Sonstige";
+var be6 = sonstige;
 
 var uni0 = "Universität";
 var uni1 = "Fachhochschule";
@@ -60,7 +62,7 @@ var uni2 = "Duale Hochschule";
 var uni3 = "Pädagogische Hochschule";
 var uni4 = "Musisch-künstlerische Hochschule";
 var uni5 = "Theologische Hochschule";
-var uni6 = "Sonstige";
+var uni6 = sonstige;
 
 var oft0 = "Mehrmals täglich";
 var oft1 = "Täglich";
@@ -77,17 +79,17 @@ var lang3 = "Länger";
 var ort0 = "Zuhause";
 var ort1 = "Unterwegs (z.B. im ÖPNV)";
 var ort2 = "In der Schule/Hochschule/Auf der Arbeit";
-var ort3 = "Sonstige";
+var ort3 = sonstige;
 
 var art0 = "Strategie-Spiele (wie z.B. Clash of Clans)";
 var art1 = "Level-Spiele (wie z.B. Angry Birds)";
 var art2 = "One-Level-Spiele (wie z.B. Doodle Jump)";
-var art3 = "Sonstige";
+var art3 = sonstige;
 
 var wett0 = "Konfrontation mit eigenem Highscore";
 var wett1 = "Leaderboards mit anderen Spielern";
 var wett2 = "Wettbewerb motiviert mich nicht";
-var wett3 = "Sonstige";
+var wett3 = sonstige;
 
 
 function arrayOfPossibleAnswersOf(category) {
