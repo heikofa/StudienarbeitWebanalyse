@@ -37,7 +37,6 @@ function showResults() {
     resetNumbers();
     filteredData.forEach(function (element) {
         window.categories.forEach(function (category) {
-
             if (!numbers[category]){
                 return;
             }
@@ -54,10 +53,18 @@ function showResults() {
     numbers.art[3] = filteredData.length - numbers.art[2] - numbers.art[1] - numbers.art[0] - numbers.oft[5];
     console.log(numbers.oft);
     setNumberOfTotalAnswers(filteredData.length);
-    showChart(arrayOfPossibleAnswersOf("oft"), numbers.oft, window.oft, 'chartHowOften', pieChart);
-    showChart(arrayOfPossibleAnswersOf("lang"), numbers.lang, window.lang, 'chartHowLong', pieChart);
-    showChart(arrayOfPossibleAnswersOf("ort"), numbers.ort, window.ort, 'chartWhere', barChart);
-    showChart(arrayOfPossibleAnswersOf("art"), numbers.art, window.art, 'chartType', barChart);
+
+    window.categories.forEach(function (category) {
+        if(category == "ort" || category=="art"){
+            showChart(arrayOfPossibleAnswersOf(category), numbers[category], window[category], "chart"+category, barChart);
+            return;
+        }
+        showChart(arrayOfPossibleAnswersOf(category), numbers[category], window[category], "chart"+category, pieChart);
+    });
+    // showChart(arrayOfPossibleAnswersOf("oft"), numbers.oft, window.oft, 'chartHowOften', pieChart);
+    // showChart(arrayOfPossibleAnswersOf("lang"), numbers.lang, window.lang, 'chartHowLong', pieChart);
+    // showChart(arrayOfPossibleAnswersOf("ort"), numbers.ort, window.ort, 'chartWhere', barChart);
+    // showChart(arrayOfPossibleAnswersOf("art"), numbers.art, window.art, 'chartType', barChart);
 
 }
 
@@ -102,25 +109,28 @@ function showChart(toppings, slices, title, divID, chartType) {
 }
 
 function resetNumbers() {
-    numbers.oft = [0, 0, 0, 0, 0, 0];
-    numbers.lang = [0, 0, 0, 0];
-    numbers.ort = [0, 0, 0, 0];
-    numbers.art = [0, 0, 0, 0];
-    numbers.competition = [0, 0, 0];
+    // numbers.oft = [0, 0, 0, 0, 0, 0];
+    // numbers.lang = [0, 0, 0, 0];
+    // numbers.ort = [0, 0, 0, 0];
+    // numbers.art = [0, 0, 0, 0];
+    // numbers.competition = [0, 0, 0];
+    window.categories.forEach(function (category) {
+        var answers = arrayOfPossibleAnswersOf(category);
+        numbers[category]=Array.apply(null, Array(answers.length)).map(Number.prototype.valueOf,0);
+    });
 }
-
+function fkt(){
+    window.categories.forEach(function (category) {
+        var answers = arrayOfPossibleAnswersOf(category);
+        numbers[category]=Array.apply(null, Array(answers.length)).map(Number.prototype.valueOf,0);
+    });
+}
 /**
  * variables
  */
 
 var filterArray = [];
-var numbers = {
-    oft: [],
-    lang: [],
-    ort: [],
-    art: [],
-    competition: []
-};
+var numbers = {};
 var data;
 var pieChart = 0;
 var barChart = 1;
