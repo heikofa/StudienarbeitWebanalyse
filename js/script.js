@@ -36,45 +36,45 @@ function showResults() {
     var filteredData = filterPoll(data, filterArray);
     resetNumbers();
     filteredData.forEach(function (element) {
-        if (element[howOften] === window.oft0) {
+        if (element[oft] === window.oft0) {
             numberHowOften[0]++;
         }
-        if (element[howOften] === window.oft1) {
+        if (element[oft] === window.oft1) {
             numberHowOften[1]++;
         }
-        if (element[howOften] === window.oft2) {
+        if (element[oft] === window.oft2) {
             numberHowOften[2]++;
         }
-        if (element[howOften] === window.oft3) {
+        if (element[oft] === window.oft3) {
             numberHowOften[3]++;
         }
-        if (element[howOften] === window.oft4) {
+        if (element[oft] === window.oft4) {
             numberHowOften[4]++;
         }
-        if (element[howOften] === window.oft5) {
+        if (element[oft] === window.oft5) {
             numberHowOften[5]++;
         }
 
-        if (element[howLong] === window.lang0) {
+        if (element[lang] === window.lang0) {
             numberHowLong[0]++;
         }
-        if (element[howLong] === window.lang1) {
+        if (element[lang] === window.lang1) {
             numberHowLong[1]++;
         }
-        if (element[howLong] === window.lang2) {
+        if (element[lang] === window.lang2) {
             numberHowLong[2]++;
         }
-        if (element[howLong] === window.lang3) {
+        if (element[lang] === window.lang3) {
             numberHowLong[3]++;
         }
 
-        if (element[where] === window.ort0) {
+        if (element[ort] === window.ort0) {
             numberWhere[0]++;
         }
-        if (element[where] === window.ort1) {
+        if (element[ort] === window.ort1) {
             numberWhere[1]++;
         }
-        if (element[where] === window.ort2) {
+        if (element[ort] === window.ort2) {
             numberWhere[2]++;
         }
 
@@ -102,9 +102,9 @@ function showResults() {
     numberType[3]= filteredData.length-numberType[2]-numberType[1]-numberType[0]-numberHowOften[5];
     console.log(numberHowOften);
     setNumberOfTotalAnswers(filteredData.length);
-    showChart([window.oft0,window.oft1,window.oft2,window.oft3,window.oft4,window.oft5], numberHowOften,window.howOften,'chartHowOften',pieChart);
-    showChart([window.lang0,window.lang1,window.lang2,window.lang3], numberHowLong,window.howLong,'chartHowLong',pieChart);
-    showChart([window.ort0,window.ort1,window.ort2,window.ort3], numberWhere,window.where,'chartWhere',barChart);
+    showChart([window.oft0,window.oft1,window.oft2,window.oft3,window.oft4,window.oft5], numberHowOften,window.oft,'chartHowOften',pieChart);
+    showChart([window.lang0,window.lang1,window.lang2,window.lang3], numberHowLong,window.lang,'chartHowLong',pieChart);
+    showChart([window.ort0,window.ort1,window.ort2,window.ort3], numberWhere,window.ort,'chartWhere',barChart);
     showChart([window.art0,window.art1,window.art2,window.art3], numberType,window.type,'chartType',barChart);
 
 }

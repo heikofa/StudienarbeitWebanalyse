@@ -8,7 +8,6 @@ function filterPoll(dataToBeFiltered, activeFilter) {
         category.forEach(function (element) {
             var filterForElement = constructFilter(element);
             categoryFilter = categoryFilter.concat(filteredData.filter(filterForElement));
-
         });
         filteredData = categoryFilter;
     });
@@ -22,7 +21,7 @@ function groupCategoriesInArray(activeFilter) {
     window.categories.forEach(function (category) {
         var categoryArray = [];
         activeFilter.forEach(function (filter) {
-            if (filter.lastIndexOf(category, 0) === 0) {
+            if (categoryOf(filter) === category) {
                 categoryArray.push(filter);
             }
         });
@@ -45,13 +44,18 @@ function constructFilter(id) {
     var category = categoryOf(id);
     // var answer = answerOf(id);
 
+    //TODO: Sonstige
+    //TODO: Multiple Answers (currently some data is added multiple times due to multiple answers
+
     if (category === "uni") {
         return function (obj) {
-            return !constructFilter("be0")(obj) || obj[window[category]] === window[id];
+            var uniId = id;
+            return !constructFilter("be0")(obj) || obj[window.uni] === window[uniId];
         }
     }
+
     return function (obj) {
-        return obj[window[category]] === window[id];
+        return obj[window[category]].indexOf(window[id]) !== -1;
     }
 }
 
