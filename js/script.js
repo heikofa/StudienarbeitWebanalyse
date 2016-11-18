@@ -32,31 +32,59 @@ function setNumberOfTotalAnswers(number) {
     document.getElementById("total").innerHTML = number;
 }
 
+function handleBarChartResult(element, category) {
+    var possibleAnswers = arrayOfPossibleAnswersOf(category);
+    var answerSplit = element[window[category]].toString().split(";");
+    if(answerSplit[0]==""){
+        return;
+    }
+    for(var possibleAnswerIndex =0;possibleAnswerIndex< possibleAnswers.length-1;possibleAnswerIndex++){
+        if(answerSplit[0]==possibleAnswers[possibleAnswerIndex]){
+            numbers[category][possibleAnswerIndex]++;
+            answerSplit.splice(0,1);
+        }
+    }
+    if(answerSplit.length>0){
+        numbers[category][possibleAnswers.length-1]++;
+    }
+
+    // var indexLast = numbers[category].length-1;
+    // numbers[category][indexLast]=filteredData.length;
+    // for(var index=indexLast-1;index >=0;index--){
+    //     numbers[category][indexLast] -= numbers[category][index];
+    // }
+    // if(category != "ort"){
+    //     numbers[category][indexLast] -= numbers.oft[5];
+    // }
+}
 function showResults() {
     var filteredData = filterPoll(data, filterArray);
-    resetNumbers();
-    filteredData.forEach(function (element) {
-        window.categories.forEach(function (category) {
-            if (!numbers[category]){
-                return;
-            }
-
-            var answers = arrayOfPossibleAnswersOf(category);
-            for (var index in answers) {
-                if (element[window[category]] === answers[index]) {
-                    numbers[category][index]++;
-                }
-            }
+            resetNumbers();
+            filteredData.forEach(function (element) {
+                window.categories.forEach(function (category) {
+                    // if (!numbers[category]){
+                    //     return;
+                    // }
+                    if(barChartCategories[category]){
+                        handleBarChartResult(element, category);
+                        return;
+                    }
+                    var answers = arrayOfPossibleAnswersOf(category);
+                    for (var index in answers) {
+                        if (element[window[category]] === answers[index]) {
+                            numbers[category][index]++;
+                        }
+                    }
         });
     });
-    numbers.ort[3] = filteredData.length - numbers.ort[2] - numbers.ort[1] - numbers.ort[0];
-    numbers.art[3] = filteredData.length - numbers.art[2] - numbers.art[1] - numbers.art[0] - numbers.oft[5];
-    numbers.wett[3] = filteredData.length - numbers.wett[2] - numbers.wett[1] - numbers.wett[0] - numbers.oft[5];
-    console.log(numbers.oft);
+    //numbers.ort[3] = filteredData.length - numbers.ort[2] - numbers.ort[1] - numbers.ort[0];
+    //numbers.art[3] = filteredData.length - numbers.art[2] - numbers.art[1] - numbers.art[0] - numbers.oft[5];
+    //numbers.wett[3] = filteredData.length - numbers.wett[2] - numbers.wett[1] - numbers.wett[0] - numbers.oft[5];
+    console.log(numbers.ort);
     setNumberOfTotalAnswers(filteredData.length);
 
     window.categories.forEach(function (category) {
-        if(category == "ort" || category=="art" || category=="wett"){
+        if(barChartCategories[category]){
             showChart(arrayOfPossibleAnswersOf(category), numbers[category], window[category], "chart"+category, barChart);
             return;
         }
@@ -120,18 +148,18 @@ function resetNumbers() {
         numbers[category]=Array.apply(null, Array(answers.length)).map(Number.prototype.valueOf,0);
     });
 }
-function fkt(){
-    window.categories.forEach(function (category) {
-        var answers = arrayOfPossibleAnswersOf(category);
-        numbers[category]=Array.apply(null, Array(answers.length)).map(Number.prototype.valueOf,0);
-    });
-}
+
 /**
  * variables
  */
 
 var filterArray = [];
 var numbers = {};
+var barChartCategories={
+    "ort":true,
+    "art":true,
+    "wett":true
+};
 var data;
 var pieChart = 0;
 var barChart = 1;
