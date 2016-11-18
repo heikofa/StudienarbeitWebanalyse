@@ -58,13 +58,3 @@ function constructFilter(id) {
 function notUniFilter(obj) {
     return !constructFilter("be0")(obj);
 }
-
-var categories = [
-    "ag",
-    "be",
-    "ge",
-    "uni",
-    "oft",
-    "lang",
-    "ort"
-];

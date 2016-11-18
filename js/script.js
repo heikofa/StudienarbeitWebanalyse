@@ -36,6 +36,7 @@ function showResults() {
     var filteredData = filterPoll(data, filterArray);
     resetNumbers();
     filteredData.forEach(function (element) {
+        //TODO Iteration
         if (element[oft] === window.oft0) {
             numberHowOften[0]++;
         }

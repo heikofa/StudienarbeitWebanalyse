@@ -1,3 +1,14 @@
+//Categories
+var categories = [
+    "ag",
+    "be",
+    "ge",
+    "uni",
+    "oft",
+    "lang",
+    "ort"
+];
+
 var ag = "Wie alt sind Sie?";
 var ge = "Geschlecht:";
 var be = "Beschäftigung";
