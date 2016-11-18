@@ -50,7 +50,7 @@ function showResults() {
             }
         });
     });
-    numbers.ort[3] = filteredData.length - numbers.ort[2] - numbers.ort[1] - numbers.ort[0] - numbers.oft[5];
+    numbers.ort[3] = filteredData.length - numbers.ort[2] - numbers.ort[1] - numbers.ort[0];
     numbers.art[3] = filteredData.length - numbers.art[2] - numbers.art[1] - numbers.art[0] - numbers.oft[5];
     console.log(numbers.oft);
     setNumberOfTotalAnswers(filteredData.length);
