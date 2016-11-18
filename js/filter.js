@@ -4,17 +4,17 @@ function filterPoll(dataToBeFiltered, activeFilter) {
 
     groupCategoriesInArray(activeFilter).forEach(function (answersOfOneCategory) {
 
-        if (categoryOf(answersOfOneCategory[0]) === "uni" && activeFilter.indexOf("be0") === -1){
-            return;
+        if (categoryOf(answersOfOneCategory[0]) === "uni") {
+            if (activeFilter.indexOf("be0") === -1) {
+                return;
+            }
+            categoryFilter = categoryFilter.concat(filteredData.filter(notUniFilter));
         }
         var categoryFilter = [];
         answersOfOneCategory.forEach(function (element) {
             var filterForElement = constructFilter(element);
             categoryFilter = categoryFilter.concat(filteredData.filter(filterForElement));
         });
-        if (categoryOf(answersOfOneCategory[0]) === "uni"){
-            categoryFilter = categoryFilter.concat(filteredData.filter(notUniFilter));
-        }
         filteredData = categoryFilter;
     });
 
@@ -41,11 +41,11 @@ function groupCategoriesInArray(activeFilter) {
 function constructFilter(id) {
     var category = categoryOf(id);
 
-    if (answerIsSonstiges(id)){
+    if (answerIsSonstiges(id)) {
         return function (obj) {
             var objHasAnswerSonstiges = true;
             arrayOfPossibleAnswersOf(category).forEach(function (answer) {
-                if (obj[window[category]] === answer){
+                if (obj[window[category]] === answer) {
                     objHasAnswerSonstiges = false;
                 }
             });
