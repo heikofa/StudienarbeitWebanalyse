@@ -6,7 +6,9 @@ var categories = [
     "uni",
     "oft",
     "lang",
-    "ort"
+    "ort",
+    "type",
+    "competition"
 ];
 
 var ag = "Wie alt sind Sie?";
