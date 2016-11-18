@@ -41,8 +41,8 @@ var ag3 = "24-30";
 var ag4 = "31-50";
 var ag5 = "51 oder älter";
 
-var gew = "weiblich";
-var gem = "männlich";
+var ge0 = "weiblich";
+var ge1 = "männlich";
 
 var be0 = "Studium";
 var be1 = "Ausbildung";
@@ -86,3 +86,8 @@ var wett0 = "Konfrontation mit eigenem Highscore";
 var wett1 = "Leaderboards mit anderen Spielern";
 var wett2 = "Wettbewerb motiviert mich nicht";
 var wett3 = "Sonstige";
+
+
+function arrayOfPossibleAnswersOf(category) {
+
+}
