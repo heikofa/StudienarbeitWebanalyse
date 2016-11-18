@@ -2,14 +2,17 @@ function filterPoll(dataToBeFiltered, activeFilter) {
 
     var filteredData = dataToBeFiltered;
 
-    groupCategoriesInArray(activeFilter).forEach(function (category) {
+    groupCategoriesInArray(activeFilter).forEach(function (answersOfOneCategory) {
 
+        if (categoryOf(answersOfOneCategory[0]) === "uni" && activeFilter.indexOf("be0") === -1){
+            return;
+        }
         var categoryFilter = [];
-        category.forEach(function (element) {
+        answersOfOneCategory.forEach(function (element) {
             var filterForElement = constructFilter(element);
             categoryFilter = categoryFilter.concat(filteredData.filter(filterForElement));
         });
-        if (categoryOf(category[0]) === "uni"){
+        if (categoryOf(answersOfOneCategory[0]) === "uni"){
             categoryFilter = categoryFilter.concat(filteredData.filter(notUniFilter));
         }
         filteredData = categoryFilter;
@@ -35,17 +38,22 @@ function groupCategoriesInArray(activeFilter) {
     return categorizedActiveFilter;
 }
 
-function categoryOf(id) {
-    return id.substring(0, id.length - 1);
-}
-
-function answerOf(id) {
-    return id[id.length - 1];
-}
-
 function constructFilter(id) {
     var category = categoryOf(id);
-    // var answer = answerOf(id);
+
+    if (answerIsSonstiges(id)){
+        return function (obj) {
+            var objHasAnswerSonstiges = true;
+            arrayOfPossibleAnswersOf(category).forEach(function (answer) {
+                if (obj[window[category]] === answer){
+                    objHasAnswerSonstiges = false;
+                }
+            });
+            return objHasAnswerSonstiges;
+
+        }
+    }
+
 
     //TODO: Sonstige
     //TODO: Multiple Answers (currently some data is added multiple times due to multiple answers

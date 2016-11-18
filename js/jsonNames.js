@@ -102,3 +102,15 @@ function arrayOfPossibleAnswersOf(category) {
         index++;
     }
 }
+
+function categoryOf(answerId) {
+    return answerId.substring(0, answerId.length - 1);
+}
+
+function answerIndexOf(answerId) {
+    return answerId[answerId.length - 1];
+}
+
+function answerIsSonstiges(answerId) {
+    return window[answerId] === "Sonstige";
+}
