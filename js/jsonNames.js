@@ -89,5 +89,14 @@ var wett3 = "Sonstige";
 
 
 function arrayOfPossibleAnswersOf(category) {
-
+    var arrayOfAnswers = [];
+    var index = 0;
+    while (true) {
+        var potentialAnswer = window[category + index];
+        if (!potentialAnswer) {
+            return arrayOfAnswers;
+        }
+        arrayOfAnswers.push(potentialAnswer);
+        index++;
+    }
 }
