@@ -3,7 +3,7 @@
  */
 
 function toggleCheckbox(cb) {
-    changeVisibilityOfStudyIfNecessary(cb);
+    //changeVisibilityOfStudyIfNecessary(cb);
     editFilter(cb);
     showResults();
 }
