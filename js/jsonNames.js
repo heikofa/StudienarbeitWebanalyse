@@ -7,7 +7,7 @@ var categories = [
     "oft",
     "lang",
     "ort",
-    "type",
+    "art",
     "competition"
 ];
 
@@ -18,7 +18,7 @@ var uni = "In welcher Art von Bildungseinrichtung studieren Sie?";
 var oft = "Wie oft spielen Sie Spiele auf einem Smartphone?";
 var lang = "Wie lang spielen Sie durchschnittlich am Stück?";
 var ort = "Wo spielen Sie gerne Smartphone-Games?";
-var type = "Welche Art von Spielen bevorzugen Sie?";
+var art = "Welche Art von Spielen bevorzugen Sie?";
 var competition = "Welche Art von Wettbewerb motiviert Sie?";
 var rewardDaily = "Wie stark motivieren Sie die verschiedenen Arten von Belohnungen? [Belohnungen für tägliches Spielen]";
 var rewardCurrency = "Wie stark motivieren Sie die verschiedenen Arten von Belohnungen? [Belohnungen, die Sie im Spiel weiterbringen]";

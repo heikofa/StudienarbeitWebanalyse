@@ -50,14 +50,14 @@ function showResults() {
             }
         });
     });
-    numbers.wo[3] = filteredData.length - numbers.wo[2] - numbers.wo[1] - numbers.wo[0] - numbers.oft[5];
-    numbers.type[3] = filteredData.length - numbers.type[2] - numbers.type[1] - numbers.type[0] - numbers.oft[5];
+    numbers.ort[3] = filteredData.length - numbers.ort[2] - numbers.ort[1] - numbers.ort[0] - numbers.oft[5];
+    numbers.art[3] = filteredData.length - numbers.art[2] - numbers.art[1] - numbers.art[0] - numbers.oft[5];
     console.log(numbers.oft);
     setNumberOfTotalAnswers(filteredData.length);
     showChart(arrayOfPossibleAnswersOf("oft"), numbers.oft, window.oft, 'chartHowOften', pieChart);
     showChart(arrayOfPossibleAnswersOf("lang"), numbers.lang, window.lang, 'chartHowLong', pieChart);
-    showChart(arrayOfPossibleAnswersOf("wo"), numbers.wo, window.ort, 'chartWhere', barChart);
-    showChart(arrayOfPossibleAnswersOf("type"), numbers.type, window.type, 'chartType', barChart);
+    showChart(arrayOfPossibleAnswersOf("ort"), numbers.ort, window.ort, 'chartWhere', barChart);
+    showChart(arrayOfPossibleAnswersOf("art"), numbers.art, window.art, 'chartType', barChart);
 
 }
 
@@ -104,8 +104,8 @@ function showChart(toppings, slices, title, divID, chartType) {
 function resetNumbers() {
     numbers.oft = [0, 0, 0, 0, 0, 0];
     numbers.lang = [0, 0, 0, 0];
-    numbers.wo = [0, 0, 0, 0];
-    numbers.type = [0, 0, 0, 0];
+    numbers.ort = [0, 0, 0, 0];
+    numbers.art = [0, 0, 0, 0];
     numbers.competition = [0, 0, 0];
 }
 
@@ -117,8 +117,8 @@ var filterArray = [];
 var numbers = {
     oft: [],
     lang: [],
-    wo: [],
-    type: [],
+    ort: [],
+    art: [],
     competition: []
 };
 var data;
