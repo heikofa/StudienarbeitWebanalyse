@@ -1,4 +1,8 @@
 Bug Fix Studium Sonstige
-Überprüfen ob Mehrere Antworten funktionieren --> Berechnung für Chart --> Fallunterscheidung
-Dynamische Gestaltung von Numbers und ggf. anderen Sachen die wir brauchen
+Filter bei mehreren Antwortmöglichleiten fixen.
+Dynamische Gestaltung von ggf. anderen Sachen die wir brauchen
 In JsonNames Alles hinzufügen
+
+Done:
+Überprüfen ob Mehrere Antworten funktionieren --> Berechnung für Chart --> Fallunterscheidung
+Dynamische Gestaltung von Numbers
