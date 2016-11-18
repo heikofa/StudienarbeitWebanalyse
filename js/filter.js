@@ -45,7 +45,7 @@ function constructFilter(id) {
         return function (obj) {
             var objHasAnswerSonstiges = true;
             arrayOfPossibleAnswersOf(category).forEach(function (answer) {
-                if (obj[window[category]] === answer) {
+                if (obj[window[category]] === answer && answer !== window.sonstige) {
                     objHasAnswerSonstiges = false;
                 }
             });
@@ -59,7 +59,7 @@ function constructFilter(id) {
     //TODO: Multiple Answers (currently some data is added multiple times due to multiple answers
 
     return function (obj) {
-        return obj[window[category]].indexOf(window[id]) !== -1;
+        return obj[window[category]] === window[id];
     }
 }
 
