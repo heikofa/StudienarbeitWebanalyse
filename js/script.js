@@ -127,6 +127,11 @@ var barChart = 1;
 /**
  * executed code
  */
+
+window.onload = function() {
+    initCheckboxes();
+};
+
 resetNumbers();
 $.getJSON("data/data.json", function (obj) {
     data = obj;
