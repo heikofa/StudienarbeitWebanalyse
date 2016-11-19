@@ -20,6 +20,9 @@ function createCheckboxes(questionID){
 }
 
 function createCheckboxContainer(questionID) {
+    if(barChartCategories[questionID]){
+        return;
+    }
     var div = document.createElement("div");
     var title = document.createElement("h5");
     title.innerHTML=window[questionID];
