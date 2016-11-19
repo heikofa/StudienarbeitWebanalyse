@@ -48,6 +48,10 @@ function handleBarChartResult(element, category) {
     }
     if(answerSplit.length>0){
         numbers[category][possibleAnswers.length-1]++;
+        if(typeof sonstigeAntworten[category] == "undefined"){
+            sonstigeAntworten[category]=[];
+        }
+        sonstigeAntworten[category].push(answerSplit[0]);
     }
 
     // var indexLast = numbers[category].length-1;
@@ -61,22 +65,23 @@ function handleBarChartResult(element, category) {
 }
 function showResults() {
     var filteredData = filterPoll(data, filterArray);
-            resetNumbers();
-            filteredData.forEach(function (element) {
-                window.categories.forEach(function (category) {
-                    // if (!numbers[category]){
-                    //     return;
-                    // }
-                    if(barChartCategories[category]){
-                        handleBarChartResult(element, category);
-                        return;
-                    }
-                    var answers = arrayOfPossibleAnswersOf(category);
-                    for (var index in answers) {
-                        if (element[window[category]] === answers[index]) {
-                            numbers[category][index]++;
-                        }
-                    }
+    resetNumbers();
+    resetSonstige();
+    filteredData.forEach(function (element) {
+        window.categories.forEach(function (category) {
+            // if (!numbers[category]){
+            //     return;
+            // }
+            if(barChartCategories[category]){
+                handleBarChartResult(element, category);
+                return;
+            }
+            var answers = arrayOfPossibleAnswersOf(category);
+            for (var index in answers) {
+                if (element[window[category]] === answers[index]) {
+                    numbers[category][index]++;
+                }
+            }
         });
     });
     //numbers.ort[3] = filteredData.length - numbers.ort[2] - numbers.ort[1] - numbers.ort[0];
@@ -100,7 +105,7 @@ function showResults() {
     // showChart(arrayOfPossibleAnswersOf("lang"), numbers.lang, window.lang, 'chartHowLong', pieChart);
     // showChart(arrayOfPossibleAnswersOf("ort"), numbers.ort, window.ort, 'chartWhere', barChart);
     // showChart(arrayOfPossibleAnswersOf("art"), numbers.art, window.art, 'chartType', barChart);
-
+    console.log(sonstigeAntworten["art"]);
 }
 
 function getPercentValue(number) {
@@ -123,7 +128,7 @@ function showChart(toppings, slices, title, category,numberTotalVotes, chartType
         // Instantiate and draw our chart, passing in some options.
         if (document.getElementById("chart"+category) === null) {
             var div = document.createElement("div");
-            div.className = "checkboxcontainer";
+            div.className = "checkboxcontainer chartcontainer";
             div.id = "chart"+category;
             document.getElementById("charts").appendChild(div);
         }
@@ -147,10 +152,22 @@ function showChart(toppings, slices, title, category,numberTotalVotes, chartType
                 chartData= google.visualization.arrayToDataTable(chartArray);
                 chart = new google.visualization.BarChart(document.getElementById("chart"+category));
                 options["legend"]= { position: "none" };
+
                 break;
         }
 
         chart.draw(chartData, options);
+
+        if(typeof sonstigeAntworten[category] != "undefined"){
+            var button = document.createElement("button");
+            button.className = "btn btn-primary";
+            button.setAttribute("onClick","showSonstige('"+category+"')");
+            button.innerHTML=window.sonstige;
+            button.type="button";
+            button.setAttribute("data-toggle","modal");
+            button.setAttribute("data-target","#modalSonstige");
+            document.getElementById("chart"+category).appendChild(button);
+        }
     }
 
 }
@@ -167,6 +184,26 @@ function resetNumbers() {
     });
 }
 
+function resetSonstige() {
+    sonstigeAntworten = {};
+    document.getElementById("listSonstige").innerHTML="";
+}
+
+
+function showSonstige(category){
+    document.getElementById("listSonstige").innerHTML="";
+    sonstigeAntworten[category].sort(function (a, b) {
+        return a.toLowerCase().localeCompare(b.toLowerCase());
+    });
+    for(var index in sonstigeAntworten[category]){
+        var li = document.createElement("li");
+        li.className = "list-group-item";
+        li.innerHTML=sonstigeAntworten[category][index];
+        document.getElementById("listSonstige").appendChild(li);
+    }
+
+
+}
 /**
  * variables
  */
@@ -178,6 +215,7 @@ var barChartCategories={
     "art":true,
     "wett":true
 };
+var sonstigeAntworten = {};
 var data;
 var pieChart = 0;
 var barChart = 1;
