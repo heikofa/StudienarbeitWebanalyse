@@ -1,14 +1,20 @@
 //Categories
 var categories = [
     "ag",
-    "be",
     "ge",
+    "be",
     "uni",
     "oft",
     "lang",
     "ort",
     "art",
-    "wett"
+    "wett",
+    "rewardDaily",
+    "rewardCurrency",
+    "rewardDesign",
+    "rewardOther",
+    "games",
+    "favoriteGame"
 ];
 
 var ag = "Wie alt sind Sie?";
@@ -91,8 +97,64 @@ var wett1 = "Leaderboards mit anderen Spielern";
 var wett2 = "Wettbewerb motiviert mich nicht";
 var wett3 = sonstige;
 
+var rewardDaily0 = "Gar nicht"
+var rewardDaily1 = "sehr wenig"
+var rewardDaily2 = "wenig"
+var rewardDaily3 = "mittel"
+var rewardDaily4 = "stark"
+var rewardDaily5 = "sehr stark"
 
-function arrayOfPossibleAnswersOf(category) {
+var rewardCurrency0 = "Gar nicht"
+var rewardCurrency1 = "sehr wenig"
+var rewardCurrency2 = "wenig"
+var rewardCurrency3 = "mittel"
+var rewardCurrency4 = "stark"
+var rewardCurrency5 = "sehr stark"
+
+var rewardDesign0 = "Gar nicht"
+var rewardDesign1 = "sehr wenig"
+var rewardDesign2 = "wenig"
+var rewardDesign3 = "mittel"
+var rewardDesign4 = "stark"
+var rewardDesign5 = "sehr stark"
+
+var rewardOther0 = "Gar nicht"
+var rewardOther1 = "sehr wenig"
+var rewardOther2 = "wenig"
+var rewardOther3 = "mittel"
+var rewardOther4 = "stark"
+var rewardOther5 = "sehr stark"
+
+var games0 = "FIFA17";
+var games1 = "Pineapple Pen";
+var games2 = "Block! Hexa Puzzle";
+var games3 = "Piano Tiles 2";
+var games4 = "Rolling Sky";
+var games5 = "Subway Surfers";
+var games6 = "Clash of Clans";
+var games7 = "Flippy Bottle Extreme";
+var games8 = "Color Switch";
+var games9 = "Roll the Ball";
+var games10 = "Temple Run";
+var games11 = "Pou";
+var games12 = "Hill Climbing Racing";
+var games13 = "Candy Crush";
+var games14 = "Angry Birds";
+var games15 = "Fruit Ninja";
+var games16 = "Geometry Dash";
+var games17 = "Cut the rope";
+var games18 = "2048";
+var games19 = "Doodle Jump";
+var games20 = "Plants vs. Zombies";
+var games21 = "Jetpack Joyride";
+var games22 = "Stack";
+var games23 = "Dumb ways to die";
+var games24 = "Flappy Birds";
+var games25 = "Bloons Tower Defense 5";
+var games26 = "Keins der aufgeführten";
+
+var favoriteGame0 = sonstige;
+    function arrayOfPossibleAnswersOf(category) {
     var arrayOfAnswers = [];
     var index = 0;
     while (true) {

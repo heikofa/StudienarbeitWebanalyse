@@ -134,6 +134,10 @@ function showChart(toppings, slices, title, category,numberTotalVotes, chartType
             'width': 400,
             'height': 300
         };
+        if(category=="games"){
+            options["width"]=842;
+            options["height"]=800;
+        }
 
         // Instantiate and draw our chart, passing in some options.
         if (document.getElementById("chart"+category) === null) {
@@ -203,7 +207,7 @@ function resetSonstige() {
 function showSonstige(category){
     document.getElementById("listSonstige").innerHTML="";
     sonstigeAntworten[category].sort(function (a, b) {
-        return a.toLowerCase().localeCompare(b.toLowerCase());
+        return a.toString().toLowerCase().localeCompare(b.toString().toLowerCase());
     });
     for(var index in sonstigeAntworten[category]){
         var li = document.createElement("li");
@@ -223,7 +227,8 @@ var numbers = {};
 var barChartCategories={
     "ort":true,
     "art":true,
-    "wett":true
+    "wett":true,
+    "games":true
 };
 var sonstigeAntworten = {};
 var data;
