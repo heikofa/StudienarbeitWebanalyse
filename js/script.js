@@ -228,7 +228,9 @@ var barChartCategories={
     "ort":true,
     "art":true,
     "wett":true,
-    "games":true
+    "games":true,
+    "emotions":true,
+    "emotionTriggers":true
 };
 var sonstigeAntworten = {};
 var data;

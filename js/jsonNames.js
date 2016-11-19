@@ -14,7 +14,15 @@ var categories = [
     "rewardDesign",
     "rewardOther",
     "games",
-    "favoriteGame"
+    "favoriteGame",
+    "favoriteGameType",
+    "motivationGoals",
+    "motivationRewards",
+    "motivationCompetition",
+    "motivationSupport",
+    "motivationEmotion",
+    "emotions",
+    "emotionTriggers"
 ];
 
 var ag = "Wie alt sind Sie?";
@@ -154,7 +162,70 @@ var games25 = "Bloons Tower Defense 5";
 var games26 = "Keins der aufgeführten";
 
 var favoriteGame0 = sonstige;
-    function arrayOfPossibleAnswersOf(category) {
+
+var favoriteGameType0 = "Strategie-Spiel (wie z.B. Clash of Clans)";
+var favoriteGameType1 = "Level-Spiel (wie z.B. Angry Birds)";
+var favoriteGameType2 = "One-Level-Spiel (wie z.B. Doodle Jump)";
+var favoriteGameType3 = sonstige;
+
+var motivationGoals0 = "Nicht vorhanden";
+var motivationGoals1 = "sehr wenig";
+var motivationGoals2 = "wenig";
+var motivationGoals3 = "mittel";
+var motivationGoals4 = "stark";
+var motivationGoals5 = "sehr stark";
+
+var motivationRewards0 = "Nicht vorhanden";
+var motivationRewards1 = "sehr wenig";
+var motivationRewards2 = "wenig";
+var motivationRewards3 = "mittel";
+var motivationRewards4 = "stark";
+var motivationRewards5 = "sehr stark";
+
+var motivationCompetition0 = "Nicht vorhanden";
+var motivationCompetition1 = "sehr wenig";
+var motivationCompetition2 = "wenig";
+var motivationCompetition3 = "mittel";
+var motivationCompetition4 = "stark";
+var motivationCompetition5 = "sehr stark";
+
+var motivationSupport0 = "Nicht vorhanden";
+var motivationSupport1 = "sehr wenig";
+var motivationSupport2 = "wenig";
+var motivationSupport3 = "mittel";
+var motivationSupport4 = "stark";
+var motivationSupport5 = "sehr stark";
+
+var motivationEmotion0 = "Nicht vorhanden";
+var motivationEmotion1 = "sehr wenig";
+var motivationEmotion2 = "wenig";
+var motivationEmotion3 = "mittel";
+var motivationEmotion4 = "stark";
+var motivationEmotion5 = "sehr stark";
+
+var emotions0 = "Freude";
+var emotions1 = "Spaß";
+var emotions2 = "Angst";
+var emotions3 = "Stress";
+var emotions4 = "Spannung";
+var emotions5 = "Nervosität";
+var emotions6 = "Frustration";
+var emotions7 = "Sonstige";
+
+var emotionTriggers0 = "Ansprechende Grafik";
+var emotionTriggers1 = "Sound-Effekte";
+var emotionTriggers2 = "Emotionale Musik";
+var emotionTriggers3 = "Humor";
+var emotionTriggers4 = "Fatal Death (Starte bei 0 nach Versagen)";
+var emotionTriggers5 = "Kein festes Ende, man kann sich immer verbessern";
+var emotionTriggers6 = "Wettbewerb";
+var emotionTriggers7 = "Belohnungen";
+var emotionTriggers8 = "Steigende Schwierigkeit";
+var emotionTriggers9 = "Roter Faden";
+var emotionTriggers10 = "Sonstige";
+
+
+function arrayOfPossibleAnswersOf(category) {
     var arrayOfAnswers = [];
     var index = 0;
     while (true) {
