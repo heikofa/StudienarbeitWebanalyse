@@ -30,6 +30,8 @@ function changeVisibilityOfStudyIfNecessary(cb) {
 
 function setNumberOfTotalAnswers(number) {
     document.getElementById("total").innerHTML = number;
+    document.getElementById("notNever").innerHTML = number-numbers.oft[5];
+
 }
 
 function handleBarChartResult(element, category) {
@@ -84,11 +86,15 @@ function showResults() {
     setNumberOfTotalAnswers(filteredData.length);
 
     window.categories.forEach(function (category) {
+        var totalNumberVotes= filteredData.length;
         if(barChartCategories[category]){
-            showChart(arrayOfPossibleAnswersOf(category), numbers[category], window[category], "chart"+category, barChart);
+            if(category!= "ort"){
+                totalNumberVotes -= numbers.oft[5];
+            }
+            showChart(arrayOfPossibleAnswersOf(category), numbers[category], window[category], category, totalNumberVotes, barChart);
             return;
         }
-        showChart(arrayOfPossibleAnswersOf(category), numbers[category], window[category], "chart"+category, pieChart);
+        showChart(arrayOfPossibleAnswersOf(category), numbers[category], window[category], category, totalNumberVotes, pieChart);
     });
     // showChart(arrayOfPossibleAnswersOf("oft"), numbers.oft, window.oft, 'chartHowOften', pieChart);
     // showChart(arrayOfPossibleAnswersOf("lang"), numbers.lang, window.lang, 'chartHowLong', pieChart);
@@ -97,17 +103,16 @@ function showResults() {
 
 }
 
-function showChart(toppings, slices, title, divID, chartType) {
+function getPercentValue(number) {
+    var returnNumber= number*10000;
+    returnNumber=Math.round(returnNumber);
+    return returnNumber/100 + "%";
+}
+function showChart(toppings, slices, title, category,numberTotalVotes, chartType) {
     google.charts.load('current', {packages: ['corechart']});
     google.charts.setOnLoadCallback(drawChart);
     function drawChart() {
-        // Create the data table.
-        var chartData = new google.visualization.DataTable();
-        chartData.addColumn('string', 'Topping');
-        chartData.addColumn('number', 'Slices');
-        for (var i = 0; i < slices.length; i++) {
-            chartData.addRow([toppings[i], slices[i]]);
-        }
+        var chartData;
         // Set chart options
         var options = {
             'title': title,
@@ -116,19 +121,32 @@ function showChart(toppings, slices, title, divID, chartType) {
         };
 
         // Instantiate and draw our chart, passing in some options.
-        if (document.getElementById(divID) === null) {
+        if (document.getElementById("chart"+category) === null) {
             var div = document.createElement("div");
             div.className = "checkboxcontainer";
-            div.id = divID;
+            div.id = "chart"+category;
             document.getElementById("charts").appendChild(div);
         }
         var chart;
         switch (chartType) {
             case pieChart:
-                chart = new google.visualization.PieChart(document.getElementById(divID));
+                chartData = new google.visualization.DataTable();
+                chartData.addColumn('string', 'Topping');
+                chartData.addColumn('number', 'Slices');
+                for (var i = 0; i < slices.length; i++) {
+                    chartData.addRow([toppings[i], slices[i]]);
+                }
+                chart = new google.visualization.PieChart(document.getElementById("chart"+category));
                 break;
             case barChart:
-                chart = new google.visualization.BarChart(document.getElementById(divID));
+                var chartArray=[];
+                chartArray.push(["Topping","Anzahl", {role:"annotation"}]);
+                for (var i = 0; i < slices.length; i++) {
+                    chartArray.push([toppings[i], slices[i], getPercentValue(slices[i]/numberTotalVotes)]);
+                }
+                chartData= google.visualization.arrayToDataTable(chartArray);
+                chart = new google.visualization.BarChart(document.getElementById("chart"+category));
+                options["legend"]= { position: "none" };
                 break;
         }
 
