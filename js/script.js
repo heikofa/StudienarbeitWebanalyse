@@ -76,11 +76,21 @@ function showResults() {
                 handleBarChartResult(element, category);
                 return;
             }
+            var found = false;
             var answers = arrayOfPossibleAnswersOf(category);
             for (var index in answers) {
                 if (element[window[category]] === answers[index]) {
                     numbers[category][index]++;
+                    found=true;
+                    break;
                 }
+            }
+            if(!found && element[window[category]] != ""){
+                numbers[category][answers.length-1]++;
+                if(typeof sonstigeAntworten[category] == "undefined"){
+                    sonstigeAntworten[category]=[];
+                }
+                sonstigeAntworten[category].push(element[window[category]]);
             }
         });
     });
