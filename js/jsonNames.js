@@ -25,6 +25,7 @@ var categories = [
     "emotionTriggers"
 ];
 
+var timestamp ="Zeitstempel";
 var ag = "Wie alt sind Sie?";
 var ge = "Geschlecht:";
 var be = "Beschäftigung";

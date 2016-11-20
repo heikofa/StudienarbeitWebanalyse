@@ -1,3 +1,23 @@
+function removeDuplicates(filteredData) {
+    var seen = [];
+    var len = filteredData.length;
+    for(var index = 0; index < len; index++) {
+        var person = filteredData[index];
+        var personSeen=false;;
+        for(var i = 0; i < seen.length; i++) {
+            var sameTimestamp = seen[i][window["timestamp"]] == person[window["timestamp"]];
+            var sameAgeGroup = seen[i][window["ag"]] == person[window["ag"]];
+            if (sameTimestamp && sameAgeGroup) {
+                personSeen=true;
+                break;
+            }
+        }
+        if(!personSeen){
+            seen.push(person);
+        }
+    }
+    return seen;
+}
 function filterPoll(dataToBeFiltered, activeFilter) {
 
     var filteredData = dataToBeFiltered;
@@ -18,7 +38,7 @@ function filterPoll(dataToBeFiltered, activeFilter) {
         filteredData = categoryFilter;
     });
 
-    return filteredData;
+    return removeDuplicates(filteredData);
 }
 
 function groupCategoriesInArray(activeFilter) {
