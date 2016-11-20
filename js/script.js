@@ -257,5 +257,7 @@ resetNumbers();
 
 $.getJSON("data/data.json", function (obj) {
     data = obj;
+    showResults();
 });
+
 
