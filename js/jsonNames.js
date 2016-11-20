@@ -225,6 +225,8 @@ var emotionTriggers8 = "Steigende Schwierigkeit";
 var emotionTriggers9 = "Roter Faden";
 var emotionTriggers10 = "Sonstige";
 
+var questionsUntilNewGroup=[0,4,3,7];
+var titlesOfGroup=["Allgemeines", "Spielverhalten", "Spielspeziefisch", "Lieblingsspiel"]
 
 function arrayOfPossibleAnswersOf(category) {
     var arrayOfAnswers = [];

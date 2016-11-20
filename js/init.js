@@ -33,8 +33,26 @@ function createCheckboxContainer(questionID) {
     createCheckboxes(questionID);
 }
 
+function createTitle(titleString, div) {
+    if(document.getElementById(titleString+div) === null){
+        var title = document.createElement("h3");
+        title.innerHTML=titleString;
+        title.className="grouptitle";
+        title.id=titleString+div;
+        document.getElementById(div).appendChild(title);
+    }
+
+}
 function initCheckboxes(){
+    var counter=0;
+    var index = 0;
     categories.forEach(function(element){
+        if(counter == questionsUntilNewGroup[index]){
+            createTitle(titlesOfGroup[index],"checkboxes");
+            index++;
+            counter=0;
+        }
         createCheckboxContainer(element);
+        counter++;
     });
 }

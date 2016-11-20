@@ -100,7 +100,15 @@ function showResults() {
     console.log(numbers.ort);
     setNumberOfTotalAnswers(filteredData.length);
 
+    var counter=0;
+    var index=0;
     window.categories.forEach(function (category) {
+        if(counter == questionsUntilNewGroup[index]){
+            createTitle(titlesOfGroup[index],"charts");
+            index++;
+            counter=0;
+        }
+        counter++;
         var totalNumberVotes= filteredData.length;
         if(barChartCategories[category]){
             if(category!= "ort"){
@@ -124,6 +132,12 @@ function getPercentValue(number) {
     return returnNumber/100 + "%";
 }
 function showChart(toppings, slices, title, category,numberTotalVotes, chartType) {
+    if (document.getElementById("chart"+category) === null) {
+        var div = document.createElement("div");
+        div.className = "chartcontainer";
+        div.id = "chart"+category;
+        document.getElementById("charts").appendChild(div);
+    }
     google.charts.load('current', {packages: ['corechart']});
     google.charts.setOnLoadCallback(drawChart);
     function drawChart() {
@@ -140,12 +154,7 @@ function showChart(toppings, slices, title, category,numberTotalVotes, chartType
         }
 
         // Instantiate and draw our chart, passing in some options.
-        if (document.getElementById("chart"+category) === null) {
-            var div = document.createElement("div");
-            div.className = "checkboxcontainer chartcontainer";
-            div.id = "chart"+category;
-            document.getElementById("charts").appendChild(div);
-        }
+
         var chart;
         switch (chartType) {
             case pieChart:
@@ -245,6 +254,7 @@ window.onload = function() {
 };
 
 resetNumbers();
+
 $.getJSON("data/data.json", function (obj) {
     data = obj;
 });

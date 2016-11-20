@@ -2,8 +2,12 @@
     display:inline-block;
     vertical-align: top;
     margin: 10px;
+    width: 422px;
 }
 .chartcontainer{
+    display:inline-block;
+    vertical-align: top;
+    margin: 10px;
     border-style: solid;
     border-width: 1px;
     text-align: center;
@@ -11,4 +15,22 @@
 }
 p {
     margin-left: 1rem;
+}
+.grouptitle{
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+    background-color: #1A88E3;
+    color:white;
+}
+.sectiontitle{
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-weight: bold;
+    background-color: #025aa5;
+    color:white;
 }
