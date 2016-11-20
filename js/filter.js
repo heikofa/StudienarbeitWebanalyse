@@ -41,6 +41,19 @@ function groupCategoriesInArray(activeFilter) {
 function constructFilter(id) {
     var category = categoryOf(id);
 
+    if(barChartCategories[category]){
+        return function (obj) {
+            var splitAnswers= obj[window[category]].toString().split(";");
+            if(id != window[category+arrayOfPossibleAnswersOf(category).length-1]){
+                return splitAnswers.includes(window[id]);
+            }
+            for(var index= 0; index< arrayOfPossibleAnswersOf(category).length-2;index++){
+                splitAnswers.splice(splitAnswers.indexOf(category+index),1);
+            }
+            return splitAnswers.length>0;
+        }
+    }
+
     if (answerIsSonstiges(id)) {
         return function (obj) {
             var objHasAnswerSonstiges = true;
@@ -53,6 +66,7 @@ function constructFilter(id) {
 
         }
     }
+
 
 
     //TODO: Sonstige

@@ -21,7 +21,7 @@ function createCheckboxes(questionID){
 
 function createCheckboxContainer(questionID) {
     if(barChartCategories[questionID]){
-        return;
+        //return;
     }
     var div = document.createElement("div");
     var title = document.createElement("h5");
