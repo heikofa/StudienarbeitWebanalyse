@@ -44,7 +44,7 @@ function constructFilter(id) {
     if(barChartCategories[category]){
         return function (obj) {
             var splitAnswers= obj[window[category]].toString().split(";");
-            if(id != window[category+arrayOfPossibleAnswersOf(category).length-1]){
+            if(id != window[category+(arrayOfPossibleAnswersOf(category).length-1)]){
                 return splitAnswers.includes(window[id]);
             }
             for(var index= 0; index< arrayOfPossibleAnswersOf(category).length-2;index++){

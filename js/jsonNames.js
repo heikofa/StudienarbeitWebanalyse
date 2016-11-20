@@ -239,7 +239,8 @@ function arrayOfPossibleAnswersOf(category) {
 }
 
 function categoryOf(answerId) {
-    return answerId.substring(0, answerId.length - 1);
+    return answerId.replace(/[0-9]/g, '');
+    //return answerId.substring(0, answerId.length - 1);
 }
 
 function answerIndexOf(answerId) {
