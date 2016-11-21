@@ -1,18 +1,18 @@
 function removeDuplicates(filteredData) {
     var seen = [];
     var len = filteredData.length;
-    for(var index = 0; index < len; index++) {
+    for (var index = 0; index < len; index++) {
         var person = filteredData[index];
-        var personSeen=false;;
-        for(var i = 0; i < seen.length; i++) {
+        var personSeen = false;
+        for (var i = 0; i < seen.length; i++) {
             var sameTimestamp = seen[i][window["timestamp"]] == person[window["timestamp"]];
             var sameAgeGroup = seen[i][window["ag"]] == person[window["ag"]];
             if (sameTimestamp && sameAgeGroup) {
-                personSeen=true;
+                personSeen = true;
                 break;
             }
         }
-        if(!personSeen){
+        if (!personSeen) {
             seen.push(person);
         }
     }
@@ -61,19 +61,19 @@ function groupCategoriesInArray(activeFilter) {
 function constructFilter(id) {
     var category = categoryOf(id);
 
-    if(barChartCategories[category]){
+    if (barChartCategories[category]) {
         return function (obj) {
-            var splitAnswers= obj[window[category]].toString().split(";");
-            if(!answerIsSonstiges(id)){
+            var splitAnswers = obj[window[category]].toString().split(";");
+            if (!answerIsSonstiges(id)) {
                 return splitAnswers.includes(window[id]);
             }
-            for(var index=arrayOfPossibleAnswersOf(category).length-2; index>=0;index--){
-                if(splitAnswers.includes(window[category+index])){
-                    splitAnswers.splice(splitAnswers.indexOf(category+index),1);
+            for (var index = arrayOfPossibleAnswersOf(category).length - 2; index >= 0; index--) {
+                if (splitAnswers.includes(window[category + index])) {
+                    splitAnswers.splice(splitAnswers.indexOf(category + index), 1);
                 }
 
             }
-            return splitAnswers.length>0;
+            return splitAnswers.length > 0;
         }
     }
 
@@ -89,11 +89,6 @@ function constructFilter(id) {
 
         }
     }
-
-
-
-    //TODO: Sonstige
-    //TODO: Multiple Answers (currently some data is added multiple times due to multiple answers
 
     return function (obj) {
         return obj[window[category]] === window[id];

@@ -5,7 +5,7 @@
 function toggleCheckbox(cb) {
     //changeVisibilityOfStudyIfNecessary(cb);
     editFilter(cb);
-    showResults();
+    setTimeout(showResults,0);
 }
 
 function editFilter(cb) {
@@ -15,16 +15,6 @@ function editFilter(cb) {
     }
     else {
         filterArray.push(cb.id)
-    }
-}
-
-function changeVisibilityOfStudyIfNecessary(cb) {
-    if (cb.id == "be0") {
-        if (cb.checked) {
-            document.getElementById("studium").style.visibility = "visible";
-        } else {
-            document.getElementById("studium").style.visibility = "collapse";
-        }
     }
 }
 
