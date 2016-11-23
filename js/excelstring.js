@@ -1,7 +1,7 @@
-function arrayOfObjectsToExcelString(array) {
+function arrayOfObjectsToExcelString(array, question) {
 
     var TAB = "\t";
-    var mainString = "";
+    var mainString = question+"\n";
     array.forEach(function (object) {
         var objectString = object.caption + TAB +
             object.absolute + TAB +

@@ -236,7 +236,7 @@ function showSonstige(category) {
 }
 
 function copyToClipboard(category) {
-    var text=arrayOfObjectsToExcelString(clipboardData[category]);
+    var text=arrayOfObjectsToExcelString(clipboardData[category], window[category]);
     window.prompt("Copy to clipboard: Ctrl+C (Mac: Cmd+C), Enter", text);
 }
 /**
