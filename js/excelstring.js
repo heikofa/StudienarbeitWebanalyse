@@ -5,7 +5,7 @@ function arrayOfObjectsToExcelString(array) {
     array.forEach(function (object) {
         var objectString = object.caption + TAB +
             object.absolute + TAB +
-            object.relative + "\n";
+            object.relative + "\n\r";
         mainString += objectString;
     });
     return mainString;
