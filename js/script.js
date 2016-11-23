@@ -5,7 +5,7 @@
 function toggleCheckbox(cb) {
     //changeVisibilityOfStudyIfNecessary(cb);
     editFilter(cb);
-    setTimeout(showResults,0);
+    setTimeout(showResults, 0);
 }
 
 function editFilter(cb) {
@@ -20,26 +20,26 @@ function editFilter(cb) {
 
 function setNumberOfTotalAnswers(number) {
     document.getElementById("total").innerHTML = number;
-    document.getElementById("notNever").innerHTML = number-numbers.oft[5];
+    document.getElementById("notNever").innerHTML = number - numbers.oft[5];
 
 }
 
 function handleBarChartResult(element, category) {
     var possibleAnswers = arrayOfPossibleAnswersOf(category);
     var answerSplit = element[window[category]].toString().split(";");
-    if(answerSplit[0]==""){
+    if (answerSplit[0] == "") {
         return;
     }
-    for(var possibleAnswerIndex =0;possibleAnswerIndex< possibleAnswers.length-1;possibleAnswerIndex++){
-        if(answerSplit[0]==possibleAnswers[possibleAnswerIndex]){
+    for (var possibleAnswerIndex = 0; possibleAnswerIndex < possibleAnswers.length - 1; possibleAnswerIndex++) {
+        if (answerSplit[0] == possibleAnswers[possibleAnswerIndex]) {
             numbers[category][possibleAnswerIndex]++;
-            answerSplit.splice(0,1);
+            answerSplit.splice(0, 1);
         }
     }
-    if(answerSplit.length>0){
-        numbers[category][possibleAnswers.length-1]++;
-        if(typeof sonstigeAntworten[category] == "undefined"){
-            sonstigeAntworten[category]=[];
+    if (answerSplit.length > 0) {
+        numbers[category][possibleAnswers.length - 1]++;
+        if (typeof sonstigeAntworten[category] == "undefined") {
+            sonstigeAntworten[category] = [];
         }
         sonstigeAntworten[category].push(answerSplit[0]);
     }
@@ -62,7 +62,7 @@ function showResults() {
             // if (!numbers[category]){
             //     return;
             // }
-            if(barChartCategories[category]){
+            if (barChartCategories[category]) {
                 handleBarChartResult(element, category);
                 return;
             }
@@ -71,14 +71,14 @@ function showResults() {
             for (var index in answers) {
                 if (element[window[category]] === answers[index]) {
                     numbers[category][index]++;
-                    found=true;
+                    found = true;
                     break;
                 }
             }
-            if(!found && element[window[category]] != ""){
-                numbers[category][answers.length-1]++;
-                if(typeof sonstigeAntworten[category] == "undefined"){
-                    sonstigeAntworten[category]=[];
+            if (!found && element[window[category]] != "") {
+                numbers[category][answers.length - 1]++;
+                if (typeof sonstigeAntworten[category] == "undefined") {
+                    sonstigeAntworten[category] = [];
                 }
                 sonstigeAntworten[category].push(element[window[category]]);
             }
@@ -90,18 +90,18 @@ function showResults() {
     console.log(numbers.ort);
     setNumberOfTotalAnswers(filteredData.length);
 
-    var counter=0;
-    var index=0;
+    var counter = 0;
+    var index = 0;
     window.categories.forEach(function (category) {
-        if(counter == questionsUntilNewGroup[index]){
-            createTitle(titlesOfGroup[index],"charts");
+        if (counter == questionsUntilNewGroup[index]) {
+            createTitle(titlesOfGroup[index], "charts");
             index++;
-            counter=0;
+            counter = 0;
         }
         counter++;
-        var totalNumberVotes= filteredData.length;
-        if(barChartCategories[category]){
-            if(category!= "ort"){
+        var totalNumberVotes = filteredData.length;
+        if (barChartCategories[category]) {
+            if (category != "ort") {
                 totalNumberVotes -= numbers.oft[5];
             }
             showChart(arrayOfPossibleAnswersOf(category), numbers[category], window[category], category, totalNumberVotes, barChart);
@@ -117,15 +117,15 @@ function showResults() {
 }
 
 function getPercentValue(number) {
-    var returnNumber= number*10000;
-    returnNumber=Math.round(returnNumber);
-    return returnNumber/100 + "%";
+    var returnNumber = number * 10000;
+    returnNumber = Math.round(returnNumber);
+    return returnNumber / 100 + "%";
 }
-function showChart(toppings, slices, title, category,numberTotalVotes, chartType) {
-    if (document.getElementById("chart"+category) === null) {
+function showChart(toppings, slices, title, category, numberTotalVotes, chartType) {
+    if (document.getElementById("chart" + category) === null) {
         var div = document.createElement("div");
         div.className = "chartcontainer";
-        div.id = "chart"+category;
+        div.id = "chart" + category;
         document.getElementById("charts").appendChild(div);
     }
     google.charts.load('current', {packages: ['corechart']});
@@ -138,9 +138,9 @@ function showChart(toppings, slices, title, category,numberTotalVotes, chartType
             'width': 400,
             'height': 300
         };
-        if(category=="games"){
-            options["width"]=842;
-            options["height"]=800;
+        if (category == "games") {
+            options["width"] = 842;
+            options["height"] = 800;
         }
 
         // Instantiate and draw our chart, passing in some options.
@@ -154,33 +154,39 @@ function showChart(toppings, slices, title, category,numberTotalVotes, chartType
                 for (var i = 0; i < slices.length; i++) {
                     chartData.addRow([toppings[i], slices[i]]);
                 }
-                chart = new google.visualization.PieChart(document.getElementById("chart"+category));
+                chart = new google.visualization.PieChart(document.getElementById("chart" + category));
                 break;
             case barChart:
-                var chartArray=[];
-                chartArray.push(["Topping","Anzahl", {role:"annotation"}]);
+                var chartArray = [];
+                chartArray.push(["Topping", "Anzahl", {role: "annotation"}]);
                 for (var i = 0; i < slices.length; i++) {
-                    chartArray.push([toppings[i], slices[i], getPercentValue(slices[i]/numberTotalVotes)]);
+                    chartArray.push([toppings[i], slices[i], getPercentValue(slices[i] / numberTotalVotes)]);
                 }
-                chartData= google.visualization.arrayToDataTable(chartArray);
-                chart = new google.visualization.BarChart(document.getElementById("chart"+category));
-                options["legend"]= { position: "none" };
+                chartData = google.visualization.arrayToDataTable(chartArray);
+                chart = new google.visualization.BarChart(document.getElementById("chart" + category));
+                options["legend"] = {position: "none"};
 
                 break;
         }
 
         chart.draw(chartData, options);
 
-        if(typeof sonstigeAntworten[category] != "undefined"){
+        if (typeof sonstigeAntworten[category] != "undefined") {
             var button = document.createElement("button");
             button.className = "btn btn-primary";
-            button.setAttribute("onClick","showSonstige('"+category+"')");
-            button.innerHTML=window.sonstige;
-            button.type="button";
-            button.setAttribute("data-toggle","modal");
-            button.setAttribute("data-target","#modalSonstige");
-            document.getElementById("chart"+category).appendChild(button);
+            button.setAttribute("onClick", "showSonstige('" + category + "')");
+            button.innerHTML = window.sonstige;
+            button.type = "button";
+            button.setAttribute("data-toggle", "modal");
+            button.setAttribute("data-target", "#modalSonstige");
+            document.getElementById("chart" + category).appendChild(button);
         }
+
+        var clipboardButton = $("<button onclick='copyDataToClipboard(" + category + ")'>");
+        clipboardButton.html("Clipboard");
+        clipboardButton.addClass("btn");
+        clipboardButton.addClass("btn-secondary");
+        $("#chart" + category).append(clipboardButton);
     }
 
 }
@@ -193,28 +199,33 @@ function resetNumbers() {
     // numbers.competition = [0, 0, 0];
     window.categories.forEach(function (category) {
         var answers = arrayOfPossibleAnswersOf(category);
-        numbers[category]=Array.apply(null, Array(answers.length)).map(Number.prototype.valueOf,0);
+        numbers[category] = Array.apply(null, Array(answers.length)).map(Number.prototype.valueOf, 0);
     });
 }
 
 function resetSonstige() {
     sonstigeAntworten = {};
-    document.getElementById("listSonstige").innerHTML="";
+    document.getElementById("listSonstige").innerHTML = "";
 }
 
 
-function showSonstige(category){
-    document.getElementById("listSonstige").innerHTML="";
+function showSonstige(category) {
+    document.getElementById("listSonstige").innerHTML = "";
     sonstigeAntworten[category].sort(function (a, b) {
         return a.toString().toLowerCase().localeCompare(b.toString().toLowerCase());
     });
-    for(var index in sonstigeAntworten[category]){
+    for (var index in sonstigeAntworten[category]) {
         var li = document.createElement("li");
         li.className = "list-group-item";
-        li.innerHTML=sonstigeAntworten[category][index];
+        li.innerHTML = sonstigeAntworten[category][index];
         document.getElementById("listSonstige").appendChild(li);
     }
 
+
+}
+
+function copyDataToClipboard(category) {
+    console.log(category);
 
 }
 /**
@@ -223,13 +234,13 @@ function showSonstige(category){
 
 var filterArray = [];
 var numbers = {};
-var barChartCategories={
-    "ort":true,
-    "art":true,
-    "wett":true,
-    "games":true,
-    "emotions":true,
-    "emotionTriggers":true
+var barChartCategories = {
+    "ort": true,
+    "art": true,
+    "wett": true,
+    "games": true,
+    "emotions": true,
+    "emotionTriggers": true
 };
 var sonstigeAntworten = {};
 var data;
@@ -239,7 +250,7 @@ var barChart = 1;
  * executed code
  */
 
-window.onload = function() {
+window.onload = function () {
     initCheckboxes();
 };
 
