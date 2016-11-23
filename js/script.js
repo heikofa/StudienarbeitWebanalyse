@@ -187,13 +187,13 @@ function showChart(toppings, slices, title, category, numberTotalVotes, chartTyp
             clipboardArray.push({
                 "caption": toppings[index],
                 "absolute":slices[index],
-                "relative":slices[i] / numberTotalVotes
+                "relative":getPercentValue(slices[index] / numberTotalVotes)
             });
         }
 
         clipboardData[category]= clipboardArray;
 
-        var clipboardButton = $("<button onclick='copyToClipboard(" + category + ")'>");
+        var clipboardButton = $("<button onclick='copyToClipboard(\"" + category + "\")'>");
         clipboardButton.html("Clipboard");
         clipboardButton.addClass("btn");
         clipboardButton.addClass("btn-secondary");
