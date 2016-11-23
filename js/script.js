@@ -182,7 +182,18 @@ function showChart(toppings, slices, title, category, numberTotalVotes, chartTyp
             document.getElementById("chart" + category).appendChild(button);
         }
 
-        var clipboardButton = $("<button onclick='copyToClipboard(" + JSON.stringify(chartData) + ")'>");
+        var clipboardArray= [];
+        for(var index in toppings){
+            clipboardArray.push({
+                "caption": toppings[index],
+                "absolute":slices[index],
+                "relative":slices[i] / numberTotalVotes
+            });
+        }
+
+        clipboardData[category]= clipboardArray;
+
+        var clipboardButton = $("<button onclick='copyToClipboard(" + category + ")'>");
         clipboardButton.html("Clipboard");
         clipboardButton.addClass("btn");
         clipboardButton.addClass("btn-secondary");
@@ -224,14 +235,8 @@ function showSonstige(category) {
 
 }
 
-function copyToClipboard(chartData) {
-    var data = JSON.parse(chartData);
-    var text = {};
-    console.log(text)
-    data.rows.forEach(function (row) {
-        text[row.c[0].v] = row.c[1].v;
-    });
-    text = JSON.stringify(text);
+function copyToClipboard(category) {
+    var text=arrayOfObjectsToExcelString(clipboardData[category]);
     window.prompt("Copy to clipboard: Ctrl+C (Mac: Cmd+C), Enter", text);
 }
 /**
@@ -249,6 +254,8 @@ var barChartCategories = {
     "emotionTriggers": true
 };
 var sonstigeAntworten = {};
+
+var clipboardData ={};
 var data;
 var pieChart = 0;
 var barChart = 1;
