@@ -182,7 +182,7 @@ function showChart(toppings, slices, title, category, numberTotalVotes, chartTyp
             document.getElementById("chart" + category).appendChild(button);
         }
 
-        var clipboardButton = $("<button onclick='copyDataToClipboard(" + category + ")'>");
+        var clipboardButton = $("<button onclick='copyToClipboard(" + JSON.stringify(chartData) + ")'>");
         clipboardButton.html("Clipboard");
         clipboardButton.addClass("btn");
         clipboardButton.addClass("btn-secondary");
@@ -224,9 +224,15 @@ function showSonstige(category) {
 
 }
 
-function copyDataToClipboard(category) {
-    console.log(category);
-
+function copyToClipboard(chartData) {
+    var data = JSON.parse(chartData);
+    var text = {};
+    console.log(text)
+    data.rows.forEach(function (row) {
+        text[row.c[0].v] = row.c[1].v;
+    });
+    text = JSON.stringify(text);
+    window.prompt("Copy to clipboard: Ctrl+C (Mac: Cmd+C), Enter", text);
 }
 /**
  * variables
