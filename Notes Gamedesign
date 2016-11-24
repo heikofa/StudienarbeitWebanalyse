@@ -1,8 +1,19 @@
+Schlagzeug Lernspiel
 
-Start direkt in eine Art One-level 
 
-Zusätzliche Möglichkeit in ein Dorf o.ä. zu gehen um sich zu verbessern und neue Missionen frei zu schalten
+Spielprinzip:
 
-Missionen: 	-Dynamisch generiert -> unendlich viele ?
-		-steigende Schwierigkeit
+Lied läuft im Hintergrund
+Es stehen Trommeln zur Verfügung (Anfangs nur eine, spätere Level mehrere + Becken)
+Ein Rhythmus wird angezeigt und muss mitgespielt werden
+Karaokebalken
+Endlosmodus? --> Ende vom Level (Piano Tiles Prinzip): Anzeige hört auf, Rhythmus muss weitergespielt werden, bis Versagen
+Man bekommt entsprechend Punkte/Geld oder so
 
+Größerer Kontext:
+
+Basis: Schlagzeug, kann individuell angepasst werden, 
+	neue Trommeln, Becken können dazugekauft werden
+		--> Neue Trommeln schalten neue Level frei
+Karaokebalken:
+	runder "Ladebalken" auf einzelnen Trommeln, ist dieser voll, muss die Trommel geschlagen werden
