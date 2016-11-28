@@ -16,4 +16,6 @@ Allgemein:
 Bei Levelspiel:
 - wenige Level
 - Zu viel Wiederholung, keine neuen Elemente
-- Nach Abschluss eines Levels, kann sich in diesem nicht verbessert werden --> wird nicht mehr gespielt
+- Nach Abschluss eines Levels, kann sich in diesem nicht verbessert werden 
+--> Level wird nicht mehr gespielt
+--> Spiel ist schnell langweilig
