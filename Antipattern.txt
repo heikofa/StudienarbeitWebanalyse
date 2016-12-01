@@ -19,3 +19,11 @@ Bei Levelspiel:
 - Nach Abschluss eines Levels, kann sich in diesem nicht verbessert werden 
 --> Level wird nicht mehr gespielt
 --> Spiel ist schnell langweilig
+
+
+
+
+Noch hinzugefügt:
+-zu star vorgegebener Weg (Schulischer Ansatz)
+    --> stattdessen sollte der individuelle Stand, Lernfortschritt/Lerngeschwindigkeit und individuelles Interesse möglichst gut berücksichtigt werden
+
